@@ -1,0 +1,363 @@
+@font-primary: 'Roboto', Arial, sans-serif;
+
+// Overrides
+@grid-gutter-width: 40px; 
+@border-radius-base:  4px ;
+@padding-base-vertical: 14px ;
+
+@brand-primary: #F6490D ;
+@brand-footer-color: #212125;
+
+@brand-white: #fff;
+@brand-black: #000;
+@brand-darker: #444;
+@brand-gray: #ccc;
+@brand-lighter: #e9e9e9;
+@brand-body-color: #e8e8e8;
+@brand-selection-color: #f9f6f0;
+@brand-overlay-color: #4c4a8a;
+@brand-bg-color: @brand-white;
+
+@input-border-focus:  @brand-primary ;
+@form-group-margin-bottom: 30px ;
+
+@rem: 75rem;
+
+// Mixin
+.translate_X(@translatex) {
+	-moz-transform: translateX(@translatex);
+	-webkit-transform: translateX(@translatex);
+	-ms-transform: translateX(@translatex);
+	-o-transform: translateX(@translatex);
+	transform: translateX(@translatex);
+}
+.transition(@transition) {
+    -moz-transition:    all @transition ease;
+    -o-transition:      all @transition ease;
+    -webkit-transition: all @transition ease;
+    -ms-transition: 		all @transition ease;
+    transition:         all @transition ease;
+}
+.inline_block() {
+	display:-moz-inline-stack;
+	display:inline-block;
+	zoom:1;
+	*display:inline;
+}
+
+.border_radius(@radius) {
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+      -ms-border-radius: @radius;
+          border-radius: @radius;
+}
+.flex() {
+	display: -webkit-box;      
+  	display: -moz-box;         
+  	display: -ms-flexbox;      
+  	display: -webkit-flex;     
+  	display: flex;             
+}
+.flexwrap() {
+	flex-wrap: wrap;
+	-webkit-flex-wrap: wrap; 
+	-moz-flex-wrap: wrap; 
+}
+.font-size(@fontsize) {
+    font-size: @fontsize;
+    @media (-webkit-min-device-pixel-ratio:3),(min-device-pixel-ratio:3){    
+        font-size: @fontsize/2;
+    }
+}
+.bg-image(@url){
+    background-image:~"url(../images/@{url}.png)"; 
+    @media (-webkit-min-device-pixel-ratio:3),(min-device-pixel-ratio:3){    
+        background-image:~"url('../images/@{url}@2x.png')";
+    }
+}
+   
+     
+// @font-face {
+// 	font-family: 'icomoon';
+// 	src:url('../fonts/icomoon/icomoon.eot?srf3rx');
+// 	src:url('../fonts/icomoon/icomoon.eot?srf3rx#iefix') format('embedded-opentype'),
+// 		url('../fonts/icomoon/icomoon.ttf?srf3rx') format('truetype'),
+// 		url('../fonts/icomoon/icomoon.woff?srf3rx') format('woff'),
+// 		url('../fonts/icomoon/icomoon.svg?srf3rx#icomoon') format('svg');
+// 	font-weight: normal;
+// 	font-style: normal;
+// }
+
+.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9{
+    padding: 0 5px;
+}
+
+// Import 
+@import '../css/bootstrap.min.css';
+
+
+/* =======================================================
+*
+* 	Template Style 
+*
+* ======================================================= */
+
+body {
+	font-weight: 300;
+	font-size: 14px;
+	line-height: 2;
+	font-family: @font-primary;
+    background: @brand-white;
+    color: #fff;
+}
+
+
+/* 
+
+头部
+*/
+
+
+.top{
+    text-align: center;
+    .bg-image('bg');
+    background-repeat:repeat; 
+    padding-top: 81px;
+    color: #fff;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+    .main_center{
+        position: relative;
+    }
+    .cupid{
+        position: absolute;
+        right: 56px;
+        top: 0;
+
+    }
+    .text_content{
+        padding-top: 122px;
+        padding-bottom: 38px;
+        .title{
+            // .font-size(35px);
+            font-size:35px;
+            font-weight:300;
+            color:rgba(255,255,255,1);
+            margin-top: 8px;
+        }
+    }
+    .down_content{
+        padding-bottom:53px;
+        .down_text{
+            margin-bottom: 48px;
+            font-size:24px;
+            font-weight:400;
+        }
+        .down_btn{
+            .flex();
+            justify-content: center;
+            .ios{
+                margin-right: 66px;
+            }
+        }
+    }
+    
+}
+.section2{
+    // padding: 104px 0;
+    padding: 70px 0;
+    img{
+        width: 100%;
+    }
+    .video_1{
+        margin-bottom: 15px;
+    }
+    .video_2{
+        margin-bottom: 15px;
+    }
+}
+
+.section_title{
+    font-size: 36px;
+    margin-bottom: 38px;
+    text-align: center;
+}
+.section3{
+    text-align: center;
+    background:linear-gradient(180deg,rgba(63,1,107,1) 0%,rgba(63,0,106,1) 100%);
+    padding: 62px 0;
+    .economies{
+        margin-bottom: 50px;
+        .econom_one:nth-child(2) .econom_img{
+            padding-top: 4px;
+        }
+        .econom_tit{
+            font-size:18px;
+            margin: 10px 0 20px 0;
+        }
+        .econom_h1{
+            font-size:22px;
+            margin-bottom: 5px;
+        }
+        .econom_detail{
+            font-size:15px;
+        }
+    }
+    .btn_style{
+        margin: 0 auto;
+        width: 312px;
+        height: 58px;
+        line-height: 58px;
+        border-radius: 58px;
+        color: #fff;
+        background-color: #F84C94;
+        font-size: 18px;
+    }
+}
+.cupid_scene{
+    padding: 62px 0;
+    .section_title{
+        color:rgba(248,76,148,1);
+        text-align: center;
+    }
+    .scene_list{
+        padding-bottom: 15px;
+        color: #666666;
+        font-size:14px;
+    }
+}
+.members{
+    background:linear-gradient(180deg,rgba(63,1,107,1) 0%,rgba(63,0,106,1) 100%);
+    .section_title{
+        padding: 54px 0;
+    }
+}
+.adviser{
+    .section_title{
+        padding: 78px 0 0 0;
+        color:rgba(248,76,148,1);
+    }
+    .adviser_list{
+        margin-bottom: 66px;
+        .adviser_list_one{
+            // height: 390px;
+            padding-bottom: 17px;
+            background:rgba(239,239,239,1);
+            border-radius:10px;
+            text-align: center;
+            margin-bottom: 20px;
+            min-height: 395px;
+            .adviser_img{
+                padding-top: 30px;
+                padding-bottom: 20px;
+            }
+            .adviser_detail{
+                color:rgba(102,102,102,1);
+                .adviser_name{
+                    font-size:26px;
+                }
+                .adviser_text{
+                    font-size:13px;
+                    p{
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.history{
+    .bg-image('bg2');
+    background-position: center bottom;
+    height: 601px;
+    .section_title{
+        padding: 90px 0 50px 0;
+    }
+    .line{
+        width: 100%;
+        height:2px;
+        background-color: #F84C94;
+    }
+    .history_one{
+        position: relative;
+        top: -25px;
+        .history_icon{
+            margin-bottom: 10px;
+        }
+        .history_text{
+            .text1{
+                font-size:26px;
+            }
+            .text2{
+                font-size:20px;
+                margin-bottom: 5px;
+            }
+        }
+    }
+}
+.media{
+    padding: 62px 0;
+    .report_list .col-xs-6,.report_list .col-sm-4,.report_list .col-md-4,.report_list .col-lg-4{
+        padding: 10px;
+    }
+    .section_title{
+        color: #F84C94;
+    }
+    .report_list{
+        margin-bottom: 34px;
+    }
+    .report_one{
+        border-radius:10px;
+        border:1px solid rgba(194,194,194,1);
+        overflow: hidden;
+        img{
+            width: 100%;
+        }
+    }
+    .report_detail{
+        padding: 6px;
+        font-size:13px;
+        color:rgba(102,102,102,1);
+        p{
+            margin: 0;
+            &:first-child{
+                text-overflow: ellipsis;
+                overflow: hidden; 
+                white-space: nowrap;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px){
+    .mobile_text{
+        width: 265px;
+        margin: 0 auto;
+        word-wrap:break-word;
+        word-break:break-all;
+        overflow: hidden;
+    }
+    .top .text_content{
+        padding-top: 160px;
+        padding-bottom: 83px;
+        .title{
+            font-size: 20px;
+            margin-top: 16px;
+        }
+    }
+    .text_content img{
+        width: 250px;
+    }
+    .top .down_content .down_text{
+        font-size: 15px;
+    }
+    .top .down_content .down_btn img{
+        width: 106px;
+    }
+    .cupid img{
+        width: 160px;
+    }
+}

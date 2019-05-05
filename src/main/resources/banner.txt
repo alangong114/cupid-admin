@@ -1,0 +1,30 @@
+${AnsiColor.BLUE}
+
+
+                                                                             dddddddd
+                                                           iiii              d::::::d
+                                                          i::::i             d::::::d
+                                                           iiii              d::::::d
+                                                                             d:::::d
+    ccccccccccccccccuuuuuu    uuuuuu ppppp   ppppppppp   iiiiiii     ddddddddd:::::d
+  cc:::::::::::::::cu::::u    u::::u p::::ppp:::::::::p  i:::::i   dd::::::::::::::d
+ c:::::::::::::::::cu::::u    u::::u p:::::::::::::::::p  i::::i  d::::::::::::::::d
+c:::::::cccccc:::::cu::::u    u::::u pp::::::ppppp::::::p i::::i d:::::::ddddd:::::d
+c::::::c     cccccccu::::u    u::::u  p:::::p     p:::::p i::::i d::::::d    d:::::d
+c:::::c             u::::u    u::::u  p:::::p     p:::::p i::::i d:::::d     d:::::d
+c:::::c             u::::u    u::::u  p:::::p     p:::::p i::::i d:::::d     d:::::d
+c::::::c     cccccccu:::::uuuu:::::u  p:::::p    p::::::p i::::i d:::::d     d:::::d
+c:::::::cccccc:::::cu:::::::::::::::uup:::::ppppp:::::::pi::::::id::::::ddddd::::::dd
+ c:::::::::::::::::c u:::::::::::::::up::::::::::::::::p i::::::i d:::::::::::::::::d
+  cc:::::::::::::::c  uu::::::::uu:::up::::::::::::::pp  i::::::i  d:::::::::ddd::::d
+    cccccccccccccccc    uuuuuuuu  uuuup::::::pppppppp    iiiiiiii   ddddddddd   ddddd
+                                      p:::::p
+                                      p:::::p
+                                     p:::::::p
+                                     p:::::::p
+                                     p:::::::p
+                                     ppppppppp
+
+
+ ${AnsiColor.BRIGHT_YELLOW}
+ ::: Spring-Boot ${spring-boot.version}     ::: Halo (version:${application.formatted-version})

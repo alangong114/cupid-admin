@@ -1,0 +1,135 @@
+.flex() {
+	display: -webkit-box;      
+  	display: -moz-box;         
+  	display: -ms-flexbox;      
+  	display: -webkit-flex;     
+  	display: flex;             
+}
+.economies{
+    .economies_section{
+        padding: 99px 0;
+        .flex();
+        .economies_detail{
+            .economies_tit{
+                font-size:36px;
+                color:rgba(248,76,148,1);
+                margin-bottom: 14px;
+            }
+            .economies_text{
+                font-size:24px;
+                color:rgba(51,51,51,1)
+            }
+        }
+        .economies_img{
+            flex: 1;
+            -webkit-flex: 1;
+            img{
+                width: 100%;
+            }
+        }
+    }
+    .economies_section2{
+        padding: 99px 0;
+        background:rgba(242,238,245,1);
+        .economies_title{
+            font-size:36px;
+            color:rgba(248,76,148,1);
+            text-align: center;
+            margin-bottom: 75px;
+        }
+        .economies_table{
+            font-size: 24px;
+            text-align: center;
+            table{
+                border-radius:8px 8px 0px 0px;
+                border:1px solid rgba(212,212,212,1);
+                font-size: 20px;
+            }
+            thead{
+                background-color: #BAB3C0;
+                color: #fff;
+            }
+            tbody{
+                color: #666666;
+            }
+            tbody td:first-child{
+                width: 250px;
+            }
+            td{
+                padding: 20px;
+            }
+            tbody tr{
+                background-color: #fff;
+            }
+        }
+    }
+    .economies_section3{
+        background-color: #fff;
+        text-align: center;
+        .economies_plan{
+            font-size:24px;
+            color:rgba(51,51,51,1);
+            line-height:45px;
+        }
+    }
+}
+@media (max-width: 767px){
+    .economies{
+        .economies_section{
+            padding: 50px 0;
+            display: block;
+            .economies_detail{
+                text-align: center;
+                margin-bottom: 27px;
+                .economies_tit{
+                    font-size: 20px;
+                }
+                .economies_text{
+                    font-size: 14px;
+                }
+            }
+            .economies_img{
+                flex: 1;
+                -webkit-flex: 1;
+                img{
+                    width: 100%;
+                }
+            }
+        }
+        .economies_section2{
+            padding: 50px 0;
+            .economies_title{
+                font-size:20px;
+                margin-bottom: 27px;
+            }
+            .economies_table{
+                font-size: 14px;
+                table{
+                    border-radius:8px 8px 0px 0px;
+                    border:1px solid rgba(212,212,212,1);
+                    font-size: 14px;
+                }
+                thead{
+                    background-color: #BAB3C0;
+                    color: #fff;
+                }
+                tbody{
+                    color: #666666;
+                }
+                tbody td:first-child{
+                    width: 100px;
+                }
+                td{
+                    padding: 20px 10px;
+                }
+            }
+        }
+        .economies_section3{
+            background-color: #fff;
+            .economies_plan{
+                font-size: 14px;
+                line-height: 30px;
+            }
+        }
+    }
+}

@@ -1,0 +1,42 @@
+.proposals .proposals_list {
+  padding-top: 57px;
+}
+.proposals .proposals_one {
+  margin-bottom: 50px;
+  background: #f2eef5;
+  border-radius: 10px;
+  padding: 0 41px;
+}
+.proposals .proposals_one .proposals_title {
+  font-size: 24px;
+  color: #333333;
+  padding: 52px 0 22px 0;
+}
+.proposals .proposals_one .proposals_text {
+  font-size: 18px;
+  color: #666666;
+  min-height: 146px;
+  line-height: 30px;
+}
+/* 
+改进提案
+*/
+@media (max-width: 767px) {
+  .proposals .proposals_list {
+    padding-top: 32px;
+  }
+  .proposals .proposals_one {
+    margin-bottom: 35px;
+    padding: 0 20px;
+  }
+  .proposals .proposals_one .proposals_title {
+    font-size: 16px;
+    padding: 26px 0 11px 0;
+  }
+  .proposals .proposals_one .proposals_text {
+    font-size: 13px;
+    color: #666666;
+    line-height: 24px;
+    padding-bottom: 20px;
+  }
+}

@@ -1,0 +1,216 @@
+@xs-font-size: 12px;
+@sm-font-size: 14px;
+@md-font-size: 16px;
+@lg-font-size: 18px;
+.flex() {
+	display: -webkit-box;      
+  	display: -moz-box;         
+  	display: -ms-flexbox;      
+  	display: -webkit-flex;     
+  	display: flex;             
+}
+/* 
+首页 第三部分
+*/
+.container{
+    max-width: 980px;
+    margin: 0 auto;
+}
+@media (max-width: 767px){
+    .section_title{
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    .section3{
+        .economies{
+            .col-xs-4{
+                padding: 0 5px;
+            }
+            .econom_one:nth-child(1) img{
+                width: 52.5px;
+            }
+            .econom_one:nth-child(2) img{
+                width: 44.5px;
+            }
+            .econom_one:nth-child(3) img{
+                width: 69.5px;
+            }
+            .econom_tit{
+                font-size: 12px;
+                margin: 10px 0 20px 0;
+            }
+            .econom_h1{
+                font-size: 13px;
+                margin-bottom: 5px;
+            }
+            .econom_detail{
+                font-size: 11px;
+            }
+        }
+        .btn_style{
+            font-size: 16px;
+        }
+    }
+
+    .cupid_scene .scene_list{
+        font-size: 13px;
+    }
+
+    .adviser .adviser_list .adviser_list_one{
+        padding: 20px 0;
+        .adviser_img img{
+            width: 60px;
+        }
+        .adviser_detail .adviser_text{
+            font-size:12px;
+        }
+        .adviser_detail .adviser_name{
+            font-size:24px;
+        }
+    }
+
+    .history{
+        height: auto; 
+        background-size: cover;
+        .history_list{
+            position: relative;
+        }
+        .line{
+            // display: none;
+            position: absolute;
+            left: 50%;
+            height: 100%;
+            background-color: #F84C94;
+            width: 2px;
+            top: 0;
+            margin-left: -1px;
+        }
+        .history_one{
+            height: 180px;
+            .flex();
+            .margin_left{
+                margin-left: 8px;
+            }
+            .margin_right{
+                margin-right: 8px;
+            }
+            .history_text{
+                .text1{
+                    font-size: 15px;
+                }
+                .text2{
+                    font-size: 13px;
+                }
+                .text3{
+                    font-size: 12px;
+                }
+            } 
+        }
+        .mobie_history{
+            margin: 0 auto;
+            .position_right{
+                position: relative;
+                right: -28px;
+                justify-content: flex-end;
+            }
+            .position_left{
+                position: relative;
+                left: -28px;
+            }
+        }
+    }
+    
+    footer .footer_bootom{
+        height: 38px;
+        line-height: 38px;
+        font-size:12px;
+    }
+}
+.scene_one:nth-child(1)  img{
+    width: 31.5px;
+}
+.scene_one:nth-child(2)  img{
+    width: 29.5px;
+}
+.scene_one:nth-child(3)  img{
+    width: 25px;
+}
+.scene_one:nth-child(4)  img{
+    width: 29.5px;
+}
+.scene_one:nth-child(5)  img{
+    width: 26.5px;
+}
+.scene_one:nth-child(6)  img{
+    width: 29.5px;
+}
+@media (max-width: 974px){
+    .adviser .adviser_list .adviser_list_one{
+        min-height: auto;
+        .flex();
+        align-items: center;
+        justify-content: flex-start;
+        .adviser_detail{
+            text-align: left;
+        }
+    }
+}
+
+/* 
+应用场景
+*/
+@application-small-font: 14px;
+@application-big-font: 22px;
+@media (max-width: 768px){
+    .application{
+        .scene_consensus{
+            padding: 39px 0 50px 0;
+            .scene_consensus_title{
+                font-size: @application-big-font;
+                color:rgba(248,76,148,1);
+                margin-bottom: 22px;
+            }
+            .scene_consensus_text{
+                color:rgba(102,102,102,1);
+                font-size:  @application-small-font;
+                line-height:30px;
+            }
+        }
+        .scene_experience{
+            padding: 39px 0 23px 0;
+            .scene_experience_title{
+                font-size: @application-big-font;
+                text-align: center;
+                color:rgba(248,76,148,1);
+                margin-bottom: 21px;
+            }
+            .scene_experience_text{
+                font-size: @application-small-font;
+                margin-bottom: 19px;
+                
+            }
+        }
+        .entity_industry{
+            color: #666666;
+            .entity_industry_title{
+                padding: 46px 0 28.5px 0;
+                font-size: @application-big-font;
+            }
+            .entity_industry_text{
+                margin-bottom: 31px;
+            }
+            .entity_industry_list{
+                .scene_one{
+                    display: block;
+                    text-align: center;
+                    .scene_icon{
+                        margin: 0;
+                        margin-bottom: 16px;
+                        min-height: 36px;
+                    }
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,43 @@
+.application .scene_consensus {
+  padding: 78px 0 100px 0;
+}
+.application .scene_consensus .scene_consensus_title {
+  font-size: 36px;
+  color: #f84c94;
+  margin-bottom: 22px;
+}
+.application .scene_consensus .scene_consensus_text {
+  color: #666666;
+  font-size: 14px;
+  line-height: 30px;
+}
+.application .scene_experience {
+  background: #f2eef5;
+  color: #666;
+  padding: 78px 0 46px 0;
+}
+.application .scene_experience .scene_experience_title {
+  font-size: 36px;
+  text-align: center;
+  color: #f84c94;
+  margin-bottom: 41px;
+}
+.application .scene_experience .scene_experience_text {
+  line-height: 30px;
+  font-size: 14px;
+  margin-bottom: 38px;
+}
+.application .entity_industry {
+  color: #666666;
+}
+.application .entity_industry .entity_industry_title {
+  padding: 92px 0 57px 0;
+  font-size: 36px;
+  color: #f84c94;
+  text-align: center;
+}
+.application .entity_industry .entity_industry_text {
+  font-size: 14px;
+  margin-bottom: 50px;
+  line-height: 24px;
+}
