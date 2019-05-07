@@ -93,6 +93,11 @@ public class Post implements Serializable {
     private String postSummary;
 
     /**
+     * 文章摘要Us
+     */
+    private String postUsSummary;
+
+    /**
      * 文章所属分类
      */
     @ManyToMany(cascade = {CascadeType.PERSIST}, fetch = FetchType.LAZY)

@@ -132,11 +132,18 @@ public class InstallController {
             final Post post1 = new Post();
             final List<Category> categories = new ArrayList<>();
             categories.add(category1);
-            post1.setPostTitle("Hello Cupid!");
-            post1.setPostContentMd("# Hello Cupid!\n" +
-                    "欢迎使用Cupid进行创作，删除这篇文章后赶紧开始吧。");
+            post1.setPostTitle("你好,丘比特");
+
+            post1.setPostUsTitle("Hello Cupid!");
+            post1.setPostContentMd("# 你好,丘比特!\n" +
+                    "欢迎使用Cupid进行创作，删除这篇资讯后赶紧开始吧。");
             post1.setPostContent(MarkdownUtils.renderMarkdown(post1.getPostContentMd()));
+            post1.setPostUsContentMd("# Hello Cupid!\n" +
+                    "Welcome to use Cupid for authoring, delete this post and get started.");
+            post1.setPostUsContent(MarkdownUtils.renderMarkdown(post1.getPostContentMd()));
+
             post1.setPostSummary("欢迎使用Cupid进行创作，删除这篇资讯后赶紧开始吧。");
+            post1.setPostUsSummary("Welcome to Cupid for authoring, delete this post and get started");
             post1.setPostStatus(0);
             post1.setPostUrl("hello-information");
             post1.setUser(user);
@@ -149,11 +156,18 @@ public class InstallController {
             final Post post2 = new Post();
 //            final List<Category> categories = new ArrayList<>();
             categories.add(category2);
-            post2.setPostTitle("Hello Cupid!");
-            post2.setPostContentMd("# Hello Cupid!\n" +
-                    "欢迎使用Cupid进行创作，删除这篇文章后赶紧开始吧。");
+
+            post2.setPostTitle("你好,丘比特");
+            post2.setPostUsTitle("Hello Cupid!");
+            post2.setPostContentMd("# 你好,丘比特!\n" +
+                    "欢迎使用Cupid进行创作，删除这篇公告后赶紧开始吧。");
             post2.setPostContent(MarkdownUtils.renderMarkdown(post2.getPostContentMd()));
+            post2.setPostUsContentMd("# Hello Cupid!\n" +
+                    "Welcome to use Cupid for authoring, delete this notice and get started.");
+            post2.setPostUsContent(MarkdownUtils.renderMarkdown(post2.getPostContentMd()));
             post2.setPostSummary("欢迎使用Cupid进行创作，删除这篇公告后赶紧开始吧。");
+            post2.setPostUsSummary("Welcome to use Cupid for authoring, delete this notice and get started.");
+
             post2.setPostStatus(0);
             post2.setPostUrl("hello-notice");
             post2.setUser(user);

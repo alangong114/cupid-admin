@@ -47,7 +47,6 @@ import static com.gongmc.cupid.model.dto.HaloConst.USER_SESSION_KEY;
  *     后台首页控制器
  * </pre>
  *
- *
  * @date : 2017/12/5
  */
 @Slf4j
@@ -171,7 +170,8 @@ public class AdminController {
         }
         final Long between = DateUtil.between(loginLast, DateUtil.date(), DateUnit.MINUTE);
         if (StrUtil.equals(aUser.getLoginEnable(), TrueFalseEnum.FALSE.getDesc()) && (between < CommonParamsEnum.TEN.getValue())) {
-            return new JsonResult(ResultCodeEnum.FAIL.getCode(), localeMessageUtil.getMessage("code.admin.login.disabled"));
+            return new JsonResult(ResultCodeEnum.FAIL.getCode(), localeMessageUtil.getMessage("code.admin.login" +
+                    ".disabled"));
         }
         //验证用户名和密码
         User user = null;
@@ -188,7 +188,8 @@ public class AdminController {
             userService.updateUserNormal();
             logsService.save(LogsRecord.LOGIN, LogsRecord.LOGIN_SUCCESS, request);
             log.info("User {} login succeeded.", aUser.getUserDisplayName());
-            return new JsonResult(ResultCodeEnum.SUCCESS.getCode(), localeMessageUtil.getMessage("code.admin.login.success"));
+            return new JsonResult(ResultCodeEnum.SUCCESS.getCode(), localeMessageUtil.getMessage("code.admin.login" +
+                    ".success"));
         } else {
             //更新失败次数
             final Integer errorCount = userService.updateUserLoginError();
@@ -196,9 +197,12 @@ public class AdminController {
             if (errorCount >= CommonParamsEnum.FIVE.getValue()) {
                 userService.updateUserLoginEnable(TrueFalseEnum.FALSE.getDesc());
             }
-            logsService.save(LogsRecord.LOGIN, LogsRecord.LOGIN_ERROR + "[" + HtmlUtil.escape(loginName) + "," + HtmlUtil.escape(loginPwd) + "]", request);
+            logsService.save(LogsRecord.LOGIN,
+                    LogsRecord.LOGIN_ERROR + "[" + HtmlUtil.escape(loginName) + "," + HtmlUtil.escape(loginPwd) + "]"
+                    , request);
             final Object[] args = {(5 - errorCount)};
-            return new JsonResult(ResultCodeEnum.FAIL.getCode(), localeMessageUtil.getMessage("code.admin.login.failed", args));
+            return new JsonResult(ResultCodeEnum.FAIL.getCode(), localeMessageUtil.getMessage("code.admin.login" +
+                    ".failed", args));
         }
     }
 
@@ -385,11 +389,17 @@ public class AdminController {
             JSONObject postObj = new JSONObject();
             postObj.put("postId", post.getPostId());
             postObj.put("postTitle", post.getPostTitle());
+            postObj.put("postUsTitle", post.getPostUsTitle());
+
             postObj.put("postType", post.getPostType());
             postObj.put("postContentMd", post.getPostContentMd());
+            postObj.put("postUsContentMd", post.getPostUsContentMd());
+
             postObj.put("postContent", post.getPostContent());
+            postObj.put("postUsContent", post.getPostUsContent());
             postObj.put("postUrl", post.getPostUrl());
             postObj.put("postSummary", post.getPostSummary());
+            postObj.put("postUsSummary", post.getPostUsSummary());
             postObj.put("postThumbnail", post.getPostThumbnail());
             postObj.put("postDate", post.getPostDate());
             postObj.put("postUpdate", post.getPostUpdate());
@@ -422,25 +432,25 @@ public class AdminController {
                 }
                 postObj.put("categories", categoriesJar);
             }
-            if (null != post.getComments() && post.getComments().size() > 0) {
-                JSONArray commentsJar = new JSONArray();
-                for (Comment comment : post.getComments()) {
-                    JSONObject commentObj = new JSONObject();
-                    commentObj.put("commentId", comment.getCommentId());
-                    commentObj.put("commentAuthor", comment.getCommentAuthor());
-                    commentObj.put("commentAuthorEmail", comment.getCommentAuthorEmail());
-                    commentObj.put("commentAuthorUrl", comment.getCommentAuthorUrl());
-                    commentObj.put("commentAuthorIp", comment.getCommentAuthorIp());
-                    commentObj.put("commentAuthorAvatarMd5", comment.getCommentAuthorAvatarMd5());
-                    commentObj.put("commentContent", comment.getCommentContent());
-                    commentObj.put("commentAgent", comment.getCommentAgent());
-                    commentObj.put("commentParent", comment.getCommentParent());
-                    commentObj.put("commentStatus", comment.getCommentStatus());
-                    commentObj.put("isAdmin", comment.getIsAdmin());
-                    commentsJar.add(commentObj);
-                }
-                postObj.put("comments", commentsJar);
-            }
+//            if (null != post.getComments() && post.getComments().size() > 0) {
+//                JSONArray commentsJar = new JSONArray();
+//                for (Comment comment : post.getComments()) {
+//                    JSONObject commentObj = new JSONObject();
+//                    commentObj.put("commentId", comment.getCommentId());
+//                    commentObj.put("commentAuthor", comment.getCommentAuthor());
+//                    commentObj.put("commentAuthorEmail", comment.getCommentAuthorEmail());
+//                    commentObj.put("commentAuthorUrl", comment.getCommentAuthorUrl());
+//                    commentObj.put("commentAuthorIp", comment.getCommentAuthorIp());
+//                    commentObj.put("commentAuthorAvatarMd5", comment.getCommentAuthorAvatarMd5());
+//                    commentObj.put("commentContent", comment.getCommentContent());
+//                    commentObj.put("commentAgent", comment.getCommentAgent());
+//                    commentObj.put("commentParent", comment.getCommentParent());
+//                    commentObj.put("commentStatus", comment.getCommentStatus());
+//                    commentObj.put("isAdmin", comment.getIsAdmin());
+//                    commentsJar.add(commentObj);
+//                }
+//                postObj.put("comments", commentsJar);
+//            }
             postsJar.add(postObj);
         }
         data.put("options", JSONUtil.parseFromMap(options));

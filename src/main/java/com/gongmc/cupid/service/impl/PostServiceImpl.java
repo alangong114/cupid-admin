@@ -83,6 +83,14 @@ public class PostServiceImpl extends AbstractCrudService<Post, Long> implements 
         } else {
             post.setPostSummary(summaryText);
         }
+    //        Us 摘要
+        final String summaryUsText = StrUtil.cleanBlank(HtmlUtil.cleanHtmlTag(post.getPostUsContent()));
+        if (summaryUsText.length() > postSummary) {
+            final String summary = summaryUsText.substring(0, postSummary);
+            post.setPostSummary(summary);
+        } else {
+            post.setPostSummary(summaryUsText);
+        }
         return super.create(post);
     }
 
@@ -126,6 +134,13 @@ public class PostServiceImpl extends AbstractCrudService<Post, Long> implements 
         final List<Post> posts = this.findAll(PostTypeEnum.POST_TYPE_POST.getDesc());
         for (Post post : posts) {
             String text = StrUtil.cleanBlank(HtmlUtil.cleanHtmlTag(post.getPostContent()));
+            String textUs = StrUtil.cleanBlank(HtmlUtil.cleanHtmlTag(post.getPostUsContent()));
+            if (textUs.length() > postSummary) {
+                post.setPostUsSummary(text.substring(0, postSummary));
+            } else {
+                post.setPostUsSummary(textUs);
+            }
+
             if (text.length() > postSummary) {
                 post.setPostSummary(text.substring(0, postSummary));
             } else {
