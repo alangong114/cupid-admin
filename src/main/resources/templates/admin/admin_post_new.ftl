@@ -38,14 +38,14 @@
                            onblur="autoComplateUrl();" autocomplete="off">
                 </div>
                 <div style="display: block;margin-bottom: 10px;">
-                    <#--<span style="display: none;">-->
-                        <#--<@spring.message code='admin.editor.form.url' />-->
-                        <#--<a href="javascript:void(0)">${options.blog_url!}/archives/<span id="postUrl"></span>/</a>-->
+                    <span style="display: none;">
+                        <@spring.message code='admin.editor.form.url' />
+                        <a href="javascript:void(0)">${options.blog_url!}/archives/<span id="postUrl"></span>/</a>
                         <#--<button class="btn btn-default btn-sm "-->
                                 <#--id="btn_input_postUrl"><@spring.message code='common.btn.edit' /></button>-->
                         <#--<button class="btn btn-default btn-sm " id="btn_change_postUrl" onclick="urlOnBlurAuto()"-->
                                 <#--style="display: none;"><@spring.message code='common.btn.define' /></button>-->
-                    <#--</span>-->
+                    </span>
                 </div>
                 </#compress>
                     <div class="box box-primary">
