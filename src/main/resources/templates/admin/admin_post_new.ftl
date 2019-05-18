@@ -38,13 +38,14 @@
                            onblur="autoComplateUrl();" autocomplete="off">
                 </div>
                 <div style="display: block;margin-bottom: 10px;">
-                    <span style="display: none;">
+                    <span>
                         <@spring.message code='admin.editor.form.url' />
-                        <a href="javascript:void(0)">${options.blog_url!}/archives/<span id="postUrl"></span>/</a>
-                        <#--<button class="btn btn-default btn-sm "-->
-                                <#--id="btn_input_postUrl"><@spring.message code='common.btn.edit' /></button>-->
-                        <#--<button class="btn btn-default btn-sm " id="btn_change_postUrl" onclick="urlOnBlurAuto()"-->
-                                <#--style="display: none;"><@spring.message code='common.btn.define' /></button>-->
+                        <a href="javascript:void(0)">
+                            <span id="postUrl">${options.blog_url!}/news_detail.html?id=</span>/</a>
+                        <button class="btn btn-default btn-sm "
+                                id="btn_input_postUrl"><@spring.message code='common.btn.edit' /></button>
+                        <button class="btn btn-default btn-sm " id="btn_change_postUrl" onclick="urlOnBlurAuto()"
+                                style="display: none;"><@spring.message code='common.btn.define' /></button>
                     </span>
                 </div>
                 </#compress>
@@ -306,21 +307,23 @@
                 return;
             }
 
-            $.get('/admin/posts/checkUrl', {'postUrl': newPostUrl.val()}, function (data) {
-                if (data.code === 0) {
-                    cupid.showMsg(data.msg, 'error', 2000);
-                    return;
-                } else {
+            // $.get('/admin/posts/checkUrl', {'postUrl': newPostUrl.val()}, function (data) {
+            //     if (data.code === 0) {
+            //         cupid.showMsg(data.msg, 'error', 2000);
+            //         return;
+            //     } else {
                     $('#postUrl').html(newPostUrl.val());
                     $('#btn_change_postUrl').hide();
                     $('#btn_input_postUrl').show();
-                }
-            }, 'JSON')
+                // }
+            // }, 'JSON')
         }
 
         $('#btn_input_postUrl').click(function () {
             var postUrl = $("#postUrl");
-            postUrl.html("<input type='text' id='newPostUrl' onblur='urlOnBlurAuto()' value='" + postUrl.html() + "'>");
+            postUrl.html("<input type='text' id='newPostUrl' size='60' onblur='urlOnBlurAuto()' value='" + postUrl
+                    .html() +
+                "'>");
             $(this).hide();
             $('#btn_change_postUrl').show();
         });

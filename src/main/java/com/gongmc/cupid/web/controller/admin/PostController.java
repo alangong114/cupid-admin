@@ -1,5 +1,8 @@
 package com.gongmc.cupid.web.controller.admin;
 
+import cn.hutool.core.util.RandomUtil;
+import cn.hutool.core.util.StrUtil;
+import cn.hutool.crypto.SecureUtil;
 import com.gongmc.cupid.model.domain.Post;
 import com.gongmc.cupid.model.domain.User;
 import com.gongmc.cupid.model.dto.JsonResult;
@@ -13,10 +16,6 @@ import com.gongmc.cupid.service.PostService;
 import com.gongmc.cupid.utils.HaloUtils;
 import com.gongmc.cupid.utils.LocaleMessageUtil;
 import com.gongmc.cupid.utils.MarkdownUtils;
-import com.gongmc.cupid.web.controller.core.BaseController;
-import cn.hutool.core.util.RandomUtil;
-import cn.hutool.core.util.StrUtil;
-import cn.hutool.crypto.SecureUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -153,7 +152,13 @@ public class PostController {
             if (StrUtil.equals(post.getPostThumbnail(), BlogPropertiesEnum.DEFAULT_THUMBNAIL.getProp())) {
                 post.setPostThumbnail(OPTIONS.get(BlogPropertiesEnum.BLOG_URL.getProp()) + "/static/cupid-frontend/images/thumbnail/thumbnail-" + RandomUtil.randomInt(1, 11) + ".jpg");
             }
+
             postService.create(post);
+            if (post.getPostUrl() != null && post.getPostUrl().contains("news_detail.html?id=")) {
+                post.setPostUrl(post.getPostUrl()+post.getPostId());
+                postService.update(post);
+            }
+
             logsService.save(LogsRecord.PUSH_POST, post.getPostTitle(), request);
             return new JsonResult(ResultCodeEnum.SUCCESS.getCode(), localeMessageUtil.getMessage("code.admin.common.save-success"));
         } catch (Exception e) {

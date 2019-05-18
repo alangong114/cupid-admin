@@ -40,14 +40,17 @@
                            onblur="autoComplateUrl();" value="${post.postUsTitle!}" autocomplete="off">
                 </div>
                 <div style="display: block;margin-bottom: 10px;">
-                    <span style="display: none;">
+                    <span>
                         <@spring.message code='admin.editor.form.url' />
-                        <a href="javascript:void(0)">${options.blog_url!}/archives/<span
-                                    id="postUrl">${post.postUrl!}</span>/</a>
-                        <#--<button class="btn btn-default btn-sm "-->
-                                <#--id="btn_input_postUrl"><@spring.message code='common.btn.edit' /></button>-->
-                        <#--<button class="btn btn-default btn-sm " id="btn_change_postUrl" onclick="urlOnBlurAuto()"-->
-                                <#--style="display: none;"><@spring.message code='common.btn.define' /></button>-->
+                        <a href="javascript:void(0)">
+                            <span id="postUrl">
+                                    ${post.postUrl!}
+                                <#--${options.blog_url!}/news_detail.html?id=${post.postId!}-->
+                            </span>/</a>
+                        <button class="btn btn-default btn-sm "
+                                id="btn_input_postUrl"><@spring.message code='common.btn.edit' /></button>
+                        <button class="btn btn-default btn-sm " id="btn_change_postUrl" onclick="urlOnBlurAuto()"
+                                style="display: none;"><@spring.message code='common.btn.define' /></button>
                     </span>
                 </div>
                 </#compress>
@@ -317,7 +320,7 @@
             var titleVal = $("#postTitle");
             var postUrl = $("#postUrl");
             if (titleVal.val() !== "" && titleVal.val() !== null && postUrl.html() === '') {
-                postUrl.html(new Date().getTime());
+                // postUrl.html(new Date().getTime());
             }
         }
 
@@ -328,24 +331,28 @@
         function urlOnBlurAuto() {
             var newPostUrl = $('#newPostUrl');
             if (newPostUrl.val() === "") {
-                cupid.showMsg("<@spring.message code='admin.editor.js.no-url' />", 'info', 2000);
-                return;
+                newPostUrl.val("${options.blog_url!}"+'/news_detail.html?id='+"${post.postId!}")
+                <#--newPostUrl.val(${options.blog_url!}+'/news_detail.html?id='+${post.postId!})-->
+                <#--cupid.showMsg("<@spring.message code='admin.editor.js.no-url' />", 'info', 2000);-->
+                <#--return;-->
             }
-            $.get('/admin/posts/checkUrl', {'postUrl': newPostUrl.val()}, function (data) {
-                if (data.code === 0) {
-                    cupid.showMsg(data.msg, 'error', 2000);
-                    return;
-                } else {
+            // $.get('/admin/posts/checkUrl', {'postUrl': newPostUrl.val()}, function (data) {
+                // if (data.code === 0) {
+                    // cupid.showMsg(data.msg, 'error', 2000);
+                    // return;
+                // } else {
                     $('#postUrl').html(newPostUrl.val());
                     $('#btn_change_postUrl').hide();
                     $('#btn_input_postUrl').show();
-                }
-            }, 'JSON');
+                // }
+            // }, 'JSON');
         }
 
         $('#btn_input_postUrl').click(function () {
             var postUrl = $("#postUrl");
-            postUrl.html("<input type='text' id='newPostUrl' onblur='urlOnBlurAuto()' value='" + postUrl.html() + "'>");
+            postUrl.html("<input type='text' id='newPostUrl' size='60' onblur='urlOnBlurAuto()' value='" + postUrl
+                    .html() +
+                "'>");
             $(this).hide();
             $('#btn_change_postUrl').show();
         });

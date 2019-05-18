@@ -61,7 +61,7 @@
                                 <th><@spring.message code='common.th.title' /></th>
                                 <th><@spring.message code='common.th.categories' /></th>
                                 <th><@spring.message code='common.th.tags' /></th>
-                                <th><@spring.message code='common.th.comments' /></th>
+                                <#--<th><@spring.message code='common.th.url' /></th>-->
                                 <th><@spring.message code='common.th.views' /></th>
                                 <th><@spring.message code='common.th.date' /></th>
                                 <th><@spring.message code='common.th.control' /></th>
@@ -94,10 +94,10 @@
                                         <label>无标签</label>
                                     </#if>
                                     </td>
-                                    <td>
-                                    <span class="label"
-                                          style="background-color: #d6cdcd;">${post.getComments()?size}</span>
-                                    </td>
+                                    <#--<td>-->
+                                    <#--<span class="label"-->
+                                          <#--style="background-color: #d6cdcd;">${post.getComments()?size}</span>-->
+                                    <#--</td>-->
                                     <td>
                                     <span class="label" style="background-color: #d6cdcd;">${post.postViews}</span>
                                     </td>
